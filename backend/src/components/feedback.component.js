@@ -2,18 +2,22 @@ import Feedback from "../models/feedback.model.js";
 
 const userFeedback = async (req, res) => {
     try {
-        const {username,message}=req.body;
-        console.log(username,message);
-        if(!username ||!message){
-            return res.status(400).json({ message: 'Please provide username and message.' });
+        const { username, message } = req.body;
+
+        console.log('Received Feedback:', req.body); // Log full body for debugging
+
+        if (!username || !message) {
+            return res.status(400).json({ message: 'Please provide both username and message.' });
         }
-        const newFeedback = new Feedback({username,message});
+
+        const newFeedback = new Feedback({ username, message });
         await newFeedback.save();
-        res.status(201).json({message:'send successfully'});
+
+        res.status(201).json({ message: 'Feedback sent successfully!' });
     } catch (error) {
-        res.status(400).json({ error: error.message });
-        console.error('not send');
+        console.error('Error saving feedback:', error.message);
+        res.status(500).json({ error: 'An error occurred while saving feedback.' });
     }
-}
+};
 
 export default userFeedback;

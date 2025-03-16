@@ -2,14 +2,14 @@ import bcrypt from 'bcryptjs';
  import jwt from 'jsonwebtoken'
 import User from '../models/user.model.js';
 
-// ragistration 
+// ragistration laxmi123
 export const ragistration = async (req,res)=>{
     
     try {
         const {username, email, password}= req.body;
         console.log(username, email, password);
-        if(!username || !email || !password){
-            return res.status(400).json({message:'somting is missing',success:true});
+        if (!username || !email || !password) {
+            return res.status(400).json({ message: 'Something is missing', success: true });
         }
         const user =await User.findOne({email})
         if(user){
@@ -23,7 +23,8 @@ export const ragistration = async (req,res)=>{
         })
         return res.status(200).json({message:'Account created successfully',success:true});
     } catch (error) {
-        console.log("error creating account")
+        console.error("Error creating account:", error);
+        return res.status(500).json({ message: 'Internal server error', success: false });
     }
 
     }

@@ -57,9 +57,9 @@ const AppointmentForm = () => {
 
     try {
       // Send the booking data to the backend using axios
-      const response = await axios.post('http://localhost:8000/api/v1/user/book', bookingData);
+      const response = await axios.post('http://localhost:5000/api/v1/user/book', bookingData);
 
-      if (response.status === 201) {
+      if (response.status >= 200 && response.status < 300) {
         alert('Appointment booked successfully!');
         setFormData({ name: '', mobileNumber: '', dateTime: '', teamMember: '' }); // Reset form
       }
@@ -88,16 +88,16 @@ const AppointmentForm = () => {
         <div>
           <label className="block text-sm font-medium text-gray-600 mb-1">Number</label>
           <input
-            type="tel" 
-            id="mobile" 
-            name="mobile" 
-            pattern="[0-9]{10}"
-            placeholder="Enter your Mobile Number"
-            value={formData.mobileNumber}
-            onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 focus:outline-none"
-            required
-          />
+                 type="number" 
+                 id="mobileNumber" 
+                 name="mobileNumber" 
+                 pattern="[0-9]{10}"
+                 placeholder="Enter your Mobile Number"
+                 value={formData.mobileNumber}
+                 onChange={handleChange}
+                 className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 focus:outline-none"
+                 required
+              />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-600 mb-1">Preferred Date & Time</label>

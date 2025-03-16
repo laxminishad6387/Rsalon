@@ -78,5 +78,3 @@ const Carousel = ({ items }) => {
 };
 
 export default Carousel;
-
-                                      // @NavinMalakarCreation

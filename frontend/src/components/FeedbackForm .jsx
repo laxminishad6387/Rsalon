@@ -26,7 +26,7 @@ const FeedbackForm = () => {
       setLoading(true);
       console.log('Feedback Data:', feedback);  // Check the data being sent
 
-      const response = await axios.post('http://localhost:8000/api/v1/user/feedback', feedback);
+      const response = await axios.post('http://localhost:5000/api/v1/user/feedback', feedback);
 
       if (response.status === 201) {
         alert('Thank you for your feedback!');

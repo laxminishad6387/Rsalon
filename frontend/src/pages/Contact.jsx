@@ -6,7 +6,7 @@ const ContactInfo = () => {
   return (
     <div className="bg-white shadow-lg p-6 rounded-lg">
       <h2 className="text-2xl font-bold text-gray-800 mb-4">Contact Information</h2>
-      <p className="mb-2"><strong>Address:</strong> Scheme 78, Near by Vrindavan Restaurant, VijayNagar, Indore</p>
+      <p className="mb-2"><strong>Address:</strong> 2/303  prem nagar shuklaganj unnao, uttar pradesh</p>
       <p className="mb-2"><strong>Opening Hours:</strong> Mon-Sat: 9 AM - 7 PM</p>
       <p><strong>Contact:</strong> +1 234 567 890</p>
     </div>
